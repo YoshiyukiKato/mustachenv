@@ -1,0 +1,14 @@
+{
+  "name": "well-gae-config-generator",
+  "version": "0.1.0",
+  "description": "generate well gae config from given environment variables",
+  "scripts": {
+    "start": "node render.js"
+  },
+  "author": "Boulder inc.",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.6",
+    "mustache": "^4.0.0"
+  }
+}

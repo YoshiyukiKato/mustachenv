@@ -1,0 +1,17 @@
+const fs = require("fs");
+const path = require("path");
+const Mustache = require("mustache");
+const glob = require("glob");
+
+const tmplSrcPath = process.env.TMPL_SRC_PATH || ".";
+const distDirPath = process.env.DIST_DIR_PATH || ".";
+const files = glob.sync(tmplSrcPath);
+
+console.log(tmplSrcPath, files);
+
+for (const file of files) {
+  fs.writeFileSync(
+    path.resolve(distDirPath, path.basename(file)),
+    Mustache.render(fs.readFileSync(file).toString(), process.env)
+  );
+}
